@@ -1,6 +1,5 @@
 export const validarCep = (input) => {
   const cep = input.value.replace(/\D/g, '');
-  console.log(cep);
 
   if(input.validity.valid) {
     const url = `https://viacep.com.br/ws/${cep}/json/`;
@@ -16,7 +15,7 @@ export const validarCep = (input) => {
       .then(response => response.json())
       .then(data => {
         if(data.erro) {
-          input.setCustomValidity('Este CEP não é valdo!');
+          input.setCustomValidity('Este CEP não é valido!');
           return;
         }
 
